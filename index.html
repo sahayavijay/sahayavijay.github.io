@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Sahaya Vijay Jeyaraj — Applied Mathematics &amp; Chemical Reaction Networks</title>
+<meta name="description" content="Dr. Sahaya Vijay Jeyaraj — Postdoctoral researcher at NIMS, Japan. Applied mathematics, chemical kinetics, and chemical reaction networks.">
+<style>
+:root{
+  --navy:#12233f;
+  --navy-2:#1b3a63;
+  --teal:#0e7c6b;
+  --teal-dark:#0b3d2e;
+  --blue:#134f8a;
+  --accent:#c9a24a;
+  --ink:#1f2733;
+  --muted:#5b6675;
+  --line:#e4e8ee;
+  --bg:#f5f7fa;
+  --card:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:"Segoe UI",Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  font-size:17px;
+}
+
+a{color:var(--blue);}
+
+/* ---------- Navigation ---------- */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(18,35,63,.97);
+  backdrop-filter:blur(6px);
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+.nav-inner{
+  max-width:1150px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 24px;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.nav-brand{
+  color:#fff;
+  font-weight:700;
+  letter-spacing:.5px;
+  font-size:18px;
+  text-decoration:none;
+}
+.nav-brand span{color:var(--accent);}
+.nav-links{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.nav-links a{
+  color:#dbe4f0;
+  text-decoration:none;
+  font-size:15px;
+  padding:8px 14px;
+  border-radius:6px;
+  transition:.2s;
+}
+.nav-links a:hover{background:rgba(255,255,255,.12);color:#fff;}
+
+/* ---------- Hero (capped height, title kept at top, never cropped off) ---------- */
+.hero{
+  position:relative;
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+}
+.hero-bg{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:460px;          /* keeps the banner compact */
+  object-fit:cover;
+  object-position:center 18%; /* anchor near the top so the banner title stays visible */
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(10,20,38,.42),rgba(10,25,45,.7));
+  pointer-events:none;
+}
+.hero-content{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  text-shadow:0 2px 14px rgba(0,0,0,.6);
+}
+.hero-content h1{
+  font-size:clamp(26px,4.2vw,46px);
+  font-weight:700;
+  letter-spacing:.5px;
+  line-height:1.15;
+}
+.hero-role{
+  margin-top:12px;
+  font-size:clamp(11px,1.7vw,15px);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+}
+.hero-tags{
+  margin-top:14px;
+  font-size:clamp(13px,1.9vw,18px);
+  color:#eef3f9;
+}
+.hero-affil{
+  margin-top:8px;
+  font-size:clamp(12px,1.5vw,15px);
+  color:#c7d3e2;
+}
+.hero-cta{
+  margin-top:24px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-block;
+  padding:11px 24px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  transition:.2s;
+  text-shadow:none;
+}
+.btn-primary{background:var(--teal);color:#fff;}
+.btn-primary:hover{background:#0a9a83;}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.75);color:#fff;background:rgba(10,20,38,.25);}
+.btn-ghost:hover{background:rgba(255,255,255,.18);}
+
+/* On narrow screens, stack: banner on top, text below on navy */
+@media(max-width:900px){
+  .hero-bg{max-height:230px;}
+  .hero-overlay{display:none;}
+  .hero-content{
+    position:static;
+    padding:28px 20px 40px;
+    text-shadow:none;
+  }
+}
+
+/* ---------- Sections ---------- */
+section{padding:72px 24px;}
+.wrap{max-width:1050px;margin:auto;}
+.section-title{
+  font-size:clamp(26px,3.5vw,34px);
+  color:var(--navy);
+  font-weight:700;
+  margin-bottom:8px;
+}
+.section-rule{
+  width:64px;height:4px;
+  background:var(--accent);
+  border-radius:4px;
+  margin-bottom:34px;
+}
+.alt{background:#fff;}
+
+/* ---------- About ---------- */
+.about-grid{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:48px;
+  align-items:start;
+}
+.about-photo img{
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  border:6px solid #fff;
+}
+.about-photo .caption{
+  text-align:center;
+  margin-top:14px;
+  font-size:14px;
+  color:var(--muted);
+}
+.about-text p{margin-bottom:16px;color:#38434f;}
+.quote{
+  margin-top:24px;
+  padding:18px 22px;
+  background:linear-gradient(135deg,#f2f6fb,#e7eef7);
+  border-left:5px solid var(--teal);
+  border-radius:8px;
+  font-style:italic;
+  color:var(--navy-2);
+}
+
+/* ---------- Research ---------- */
+.research-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+.research-card{
+  display:flex;
+  flex-direction:column;
+  background:var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 6px 22px rgba(0,0,0,.07);
+  transition:.2s;
+}
+.research-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12);}
+.research-card .rc-body{padding:26px 28px 20px;border-top:4px solid var(--teal);}
+.research-card h3{
+  color:var(--blue);
+  font-size:19px;
+  margin-bottom:10px;
+}
+.research-card p{font-size:15.5px;color:#495260;}
+.research-card .rc-fig{
+  margin:0;
+  margin-top:auto;          /* pins the figure to the bottom of the card */
+}
+.research-card .rc-img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-top:1px solid #e4e8ee;
+}
+.research-card .rc-cap{
+  padding:12px 22px 18px;
+  font-size:12.5px;
+  font-style:italic;
+  line-height:1.5;
+  color:var(--muted);
+}
+.focus-lead{
+  font-size:18px;
+  color:#38434f;
+  max-width:1100px;
+  margin-bottom:36px;
+}
+
+/* ---------- Publications ---------- */
+.pub-meta{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:30px;
+}
+.pub-stat{
+  background:#fff;
+  border-radius:10px;
+  padding:14px 22px;
+  box-shadow:0 4px 16px rgba(0,0,0,.06);
+  text-align:center;
+  border-bottom:3px solid var(--accent);
+  min-width:110px;
+}
+.pub-stat b{display:block;font-size:26px;color:var(--navy);}
+.pub-stat span{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+.scholar-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:12px 20px;
+  background:var(--blue);
+  color:#fff;
+  text-decoration:none;
+  font-size:14.5px;
+  font-weight:600;
+  border-radius:10px;
+  transition:.2s;
+}
+.scholar-btn:hover{background:var(--navy-2);}
+.pub-card{
+  background:var(--card);
+  border-radius:10px;
+  padding:22px 26px;
+  margin-bottom:18px;
+  box-shadow:0 4px 16px rgba(0,0,0,.06);
+  border-left:5px solid var(--teal-dark);
+}
+.pub-card h3{
+  font-size:18px;
+  color:var(--blue);
+  line-height:1.4;
+  margin-bottom:10px;
+}
+.pub-card .authors{font-size:15px;color:#414b58;margin-bottom:6px;}
+.pub-card .authors b{color:var(--teal-dark);}
+.pub-card .journal{font-size:14.5px;color:var(--muted);font-style:italic;margin-bottom:12px;}
+.pub-card .journal .year{font-style:normal;color:var(--navy);font-weight:600;}
+.pub-link{
+  display:inline-block;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--teal-dark);
+  text-decoration:none;
+  border:1.5px solid var(--teal-dark);
+  padding:7px 16px;
+  border-radius:6px;
+  transition:.2s;
+}
+.pub-link:hover{background:var(--teal-dark);color:#fff;}
+.badge{
+  display:inline-block;
+  font-size:12px;
+  font-weight:600;
+  padding:3px 10px;
+  border-radius:20px;
+  margin-left:8px;
+  vertical-align:middle;
+}
+.badge-accept{background:#e6f4ea;color:#1e7a41;}
+
+/* ---------- Contact ---------- */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+.contact-card{
+  background:var(--card);
+  border-radius:12px;
+  padding:28px;
+  box-shadow:0 6px 22px rgba(0,0,0,.07);
+  border-left:5px solid var(--blue);
+}
+.contact-card h3{color:var(--navy);font-size:18px;margin-bottom:12px;}
+.contact-card p{font-size:15.5px;color:#414b58;margin-bottom:6px;}
+.contact-card a{color:var(--teal-dark);font-weight:600;text-decoration:none;word-break:break-word;}
+.contact-card a:hover{text-decoration:underline;}
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--navy);
+  color:#cdd8e6;
+  text-align:center;
+  padding:34px 24px;
+}
+footer .fnav{margin-bottom:12px;}
+footer .fnav a{color:#cdd8e6;text-decoration:none;margin:0 12px;font-size:14px;}
+footer .fnav a:hover{color:#fff;}
+footer small{color:#8595a9;}
+
+/* ---------- Responsive ---------- */
+@media(max-width:760px){
+  .about-grid{grid-template-columns:1fr;}
+  .about-photo{max-width:280px;margin:auto;}
+  section{padding:52px 20px;}
+  .nav-inner{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand">Dr. Sahaya Vijay <span>Jeyaraj</span></a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="home">
+  <img class="hero-bg" src="images/Img_Home_Page.png" alt="Science is the Language of Nature — research banner">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Dr. Sahaya Vijay Jeyaraj</h1>
+    <p class="hero-role">NIMS Postdoctoral Researcher</p>
+    <p class="hero-tags">Applied Mathematics &nbsp;·&nbsp; Chemical Kinetics &nbsp;·&nbsp; Chemical Reaction Networks</p>
+    <p class="hero-affil">National Institute for Materials Science (NIMS), Japan</p>
+    <div class="hero-cta">
+      <a href="#research" class="btn btn-primary">Explore Research</a>
+      <a href="#publications" class="btn btn-ghost">View Publications</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="alt">
+  <div class="wrap">
+    <h2 class="section-title">About Me</h2>
+    <div class="section-rule"></div>
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/Profile.jpg" alt="Dr. Sahaya Vijay Jeyaraj">
+        <div class="caption">Dr. Sahaya Vijay Jeyaraj<br>Postdoctoral Researcher, NIMS</div>
+      </div>
+      <div class="about-text">
+        <p>I am an interdisciplinary researcher with a strong background in applied mathematics, chemical kinetics, and chemical reaction networks. Currently, I am a postdoctoral researcher at the National Institute for Materials Science (NIMS), Japan, where I develop accurate mathematical models and analytical formulations to predict the properties and dynamics of complex, nonlinear chemical systems.</p>
+        <p>My doctoral research was in chemical graph theory, focusing on predicting the physicochemical properties of metamaterials and drug-related structures. The central contribution of that work was using regression analysis to evaluate a wide range of topological indices and identify those with the strongest predictive power for the physicochemical properties of several important classes of molecular structures.</p>
+        <p>Across both my doctoral and postdoctoral work, a single thread runs through everything: the analysis of chemical reaction networks. I am passionate about leveraging mathematical tools to gain deeper insight into chemical processes and to contribute to advances in materials science and related disciplines.</p>
+        <p class="quote">The greatest discoveries are made at the boundaries between disciplines, where different ways of thinking come together to reveal new understanding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESEARCH ================= -->
+<section id="research">
+  <div class="wrap">
+    <h2 class="section-title">Research Interests</h2>
+    <div class="section-rule"></div>
+    <p class="focus-lead">My current postdoctoral research concerns predicting the kinetic properties of chemical reaction networks in champion materials, using mathematical modelling based on ordinary differential equations (ODEs) and graph theory. Although the systems and fields differ, all of my projects rest on the same core framework: the analysis of chemical reaction networks.</p>
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="rc-body">
+          <h3>Chemical Graph Theory</h3>
+          <p>Topological indices and molecular descriptors for quantitative structure–property relationship (QSPR) analysis, entropy measures, and the physicochemical characterization of metamaterials and drug-related structures.</p>
+        </div>
+        <figure class="rc-fig">
+          <img class="rc-img" src="images/rc1_graph.svg" alt="Molecular graph mapped to a property by regression">
+          <figcaption class="rc-cap">A molecule is treated as a graph of atoms (vertices) and bonds (edges); degree-based indices are regressed against measured properties to predict them.</figcaption>
+        </figure>
+      </div>
+      <div class="research-card">
+        <div class="rc-body">
+          <h3>Autocatalysis &amp; the Origin of Life</h3>
+          <p>Analyzing the amplification rate of autocatalysis in linear chemical reaction networks to understand what governs whether autocatalysis is amplified. This work is currently under review at <em>Physical Review E</em>.</p>
+        </div>
+        <figure class="rc-fig">
+          <img class="rc-img" src="images/rc2_autocatalysis.svg" alt="Autocatalytic cycle and exponential growth curve">
+          <figcaption class="rc-cap">A species that catalyses its own formation (A→2A) feeds a loop; the network's amplification factor λ decides whether the population grows over time.</figcaption>
+        </figure>
+      </div>
+      <div class="research-card">
+        <div class="rc-body">
+          <h3>Mathematical &amp; Computational Modelling</h3>
+          <p>Developing analytical formulations and ODE-based models to predict the dynamics and stability of complex, nonlinear chemical systems across the origin of life, electrochemistry, and neuroscience.</p>
+        </div>
+        <figure class="rc-fig">
+          <img class="rc-img" src="images/rc3_modelling.svg" alt="ODE trajectories converging to a steady state">
+          <figcaption class="rc-cap">Reaction kinetics written as differential equations; trajectories from different starting points reveal the system's steady states and their stability.</figcaption>
+        </figure>
+      </div>
+      <div class="research-card">
+        <div class="rc-body">
+          <h3>Electrochemical Impedance Spectroscopy</h3>
+          <p>Applying the reaction-network framework to electrochemistry: I derived a mathematical formula for the surface coverage in electrochemical impedance spectroscopy, and used it to obtain impedance spectra and Bode plots linked to the kinetic time scales of champion materials.</p>
+        </div>
+        <figure class="rc-fig">
+          <img class="rc-img" src="images/rc4_eis.svg" alt="Nyquist impedance plot and equivalent circuit">
+          <figcaption class="rc-cap">Impedance Z(ω) traced in the complex plane as frequency varies; the arc's width encodes charge-transfer resistance and electrode surface coverage.</figcaption>
+        </figure>
+      </div>
+      <div class="research-card">
+        <div class="rc-body">
+          <h3>Synaptic Memory &amp; the CaMKII Switch</h3>
+          <p>Modelling the chemical reaction network underlying long-term memory storage — the autocatalytic CaMKII switch at the synapse — with ODE-based kinetics, to characterize the bistability and threshold conditions that decide whether a synaptic state persists or decays.</p>
+        </div>
+        <figure class="rc-fig">
+          <img class="rc-img" src="images/rc5_camkii.svg" alt="Bistable double-well potential with a threshold">
+          <figcaption class="rc-cap">Two stable states — memory stored (ON) or erased (OFF) — sit in separate wells; a signal must cross the threshold to flip the switch, so a memory that stays deep persists.</figcaption>
+        </figure>
+      </div>
+      <div class="research-card">
+        <div class="rc-body">
+          <h3>Scientific Computing &amp; Open Tools</h3>
+          <p>Building open scientific software, including <em>PyTIE</em>, a Python program for evaluating degree-based topological descriptors and molecular entropy, together with machine-learning approaches to the topological features of nanomaterials.</p>
+        </div>
+        <figure class="rc-fig">
+          <img class="rc-img" src="images/rc6_compute.svg" alt="PyTIE computing descriptors from a molecular graph">
+          <figcaption class="rc-cap">Open Python tools (PyTIE) take a molecular graph as input and compute its topological descriptors and molecular entropy automatically, at scale.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PUBLICATIONS ================= -->
+<section id="publications" class="alt">
+  <div class="wrap">
+    <h2 class="section-title">Publications</h2>
+    <div class="section-rule"></div>
+    <p class="focus-lead">Peer-reviewed research in mathematical modelling, topological analysis, molecular descriptors, and computational science.</p>
+    <div class="pub-meta">
+      <div class="pub-stat"><b id="stat-pubs">15</b><span>Publications</span></div>
+      <div class="pub-stat"><b>2023–26</b><span>Active Years</span></div>
+      <div class="pub-stat"><b id="stat-citations">—</b><span>Citations</span></div>
+      <div class="pub-stat"><b id="stat-hindex">—</b><span>h-index</span></div>
+      <a class="scholar-btn" href="https://scholar.google.com/citations?user=iJlA0VQAAAAJ&amp;hl=en" target="_blank" rel="noopener">View on Google Scholar ↗</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>1. Anticancer Activity with Physical Property Analysis of Mollugo Cerviana (L.) Ser. Whole Plant Extract on Hepatocellular Carcinomic Cell Lines — HEPG2<span class="badge badge-accept">Accepted</span></h3>
+      <p class="authors">F. Sherin Rebecca, R. Sharmila, <b>Sahaya Vijay Jeyaraj</b>, Fikadu Tesgera Tolasa, Rajamanickam Pon Nivedha, Janani Ezhilan, Tony Augustine</p>
+      <p class="journal">Scientific Reports <span class="year">(2026)</span></p>
+      <a class="pub-link" href="https://doi.org/10.1038/s41598-026-58687-5" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>2. Topological, Graph-Spectral Properties, NMR and ESR Spectral Patterns of Hydrogen-Bonded Nanosheets of Boric Acid</h3>
+      <p class="authors">S. Prabhu, <b>Sahaya Vijay Jeyaraj</b>, V. Manimozhi, Micheal Arockiaraj, Roy Santiago, J. Celin Fiona, Krishna Balasubramanian</p>
+      <p class="journal">Journal of Cluster Science <span class="year">(2026)</span></p>
+      <a class="pub-link" href="https://doi.org/10.1007/s10876-026-02996-2" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>3. Machine Learning Approach on Topological Features of Bottom-up Synthesized Graphene Nanoribbons Using Valency-Based Descriptors</h3>
+      <p class="authors">K. Jyothish, S. Roy, P. Chandra Sekar, K. B. Gayathri, <b>Sahaya Vijay Jeyaraj</b>, T. Augustine</p>
+      <p class="journal">Frontiers in Chemistry <span class="year">(2026)</span></p>
+      <a class="pub-link" href="https://doi.org/10.3389/fchem.2026.1750413" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>4. PyTIE: A Python Program for the Evaluation of Degree-Based Topological Descriptors and Molecular Entropy</h3>
+      <p class="authors"><b>Sahaya Vijay Jeyaraj</b>, S. Roy, S. Govardhan, Tony Augustine, K. Jyothish</p>
+      <p class="journal">arXiv <span class="year">(2025)</span></p>
+      <a class="pub-link" href="https://doi.org/10.48550/arXiv.2510.26813" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>5. Machine Learning Approach on Degree-Sum-Based Topological Indices of Bottom-up-Synthesized Graphene Nanoribbons</h3>
+      <p class="authors">K. B. Gayathri, S. Roy, <b>Sahaya Vijay Jeyaraj</b>, P. Chandra Sekar, Tony Augustine</p>
+      <p class="journal">Nano <span class="year">(2025)</span></p>
+      <a class="pub-link" href="https://doi.org/10.1142/S1793292026500086" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>6. Graph-Theoretical Approach to Topological Features of Zeolitic Tetrahedral Imidazolate Framework-3</h3>
+      <p class="authors">Abdelli Fathi, Tony Augustine, Mohamad Nazri Husin, <b>Sahaya Vijay Jeyaraj</b>, Jain Maria Thomas, Santiago Roy</p>
+      <p class="journal">Malaysian Journal of Fundamental and Applied Sciences (MJFAS) <span class="year">(2025)</span></p>
+      <a class="pub-link" href="https://doi.org/10.11113/mjfas.v21n2.4127" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>7. Efficient Generation of Specific Counting Polynomials and Its Subsequent Indices of Complex Boric Acid Structure</h3>
+      <p class="authors"><b>Sahaya Vijay Jeyaraj</b>, Roy Santiago, Chandra Sekar Ponnusamy, Jain Maria Thomas, Mohamad Husin, Abdelli Fathi</p>
+      <p class="journal">Current Organic Synthesis <span class="year">(2025)</span></p>
+      <a class="pub-link" href="http://dx.doi.org/10.2174/0115701794366590250414051549" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>8. Exploring Neighborhood Topological Descriptors for QSPR Analysis and Entropy Measures of Some Anti-cancer Drugs</h3>
+      <p class="authors">Tony Augustine, Roy Santiago, <b>Sahaya Vijay Jeyaraj</b>, Mohamad Azeem</p>
+      <p class="journal">Current Organic Synthesis <span class="year">(2025)</span></p>
+      <a class="pub-link" href="http://dx.doi.org/10.2174/0115701794349166241217085334" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>9. QSPR Modeling of Central Nervous System (CNS) Drug Activity Using Molecular Descriptors</h3>
+      <p class="authors"><b>Sahaya Vijay Jeyaraj</b>, R. Santiago, M. Azeem, T. Augustine, M. N. Husin</p>
+      <p class="journal">Current Organic Synthesis <span class="year">(2024)</span></p>
+      <a class="pub-link" href="http://dx.doi.org/10.2174/0115701794349717241024100059" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>10. Valency-Based Molecular Descriptor on Structural-Property Relationship of Ni Tetrathiafulvalene Tetrathionate</h3>
+      <p class="authors">A. Fathi, <b>Sahaya Vijay Jeyaraj</b>, M. N. Husin, Tony Augustine</p>
+      <p class="journal">Malaysian Journal of Fundamental and Applied Sciences (MJFAS) <span class="year">(2024)</span></p>
+      <a class="pub-link" href="https://doi.org/10.11113/mjfas.v20n6.3831" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>11. In Silico Rationalization of Piperidin-4-One Analogs as Anaplastic Lymphoma Kinase Inhibitors: DFT, Topological Descriptor, Molecular Docking and Pharmacological Feature Profiling</h3>
+      <p class="authors">S. Sonadevi, D. Rajaraman, D. Periyasamy, <b>Sahaya Vijay Jeyaraj</b>, Tony Augustine, Roy Santiago, M. Saritha, L. Athishu Anthony</p>
+      <p class="journal">Journal of Molecular Structure <span class="year">(2024)</span></p>
+      <a class="pub-link" href="http://dx.doi.org/10.1016/j.molstruc.2024.138356" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>12. A Study on Efficient Technique for Generating Vertex-Based Topological Characterization of Boric Acid 2D Structure</h3>
+      <p class="authors"><b>Sahaya Vijay Jeyaraj</b>, Roy Santiago</p>
+      <p class="journal">ACS Omega <span class="year">(2023)</span></p>
+      <a class="pub-link" href="https://pubs.acs.org/doi/10.1021/acsomega.3c02477" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>13. Topological Properties and Entropy Calculations of Aluminophosphates</h3>
+      <p class="authors"><b>Sahaya Vijay Jeyaraj</b>, Santiago Roy, Bheeter Charles Beromeo, Mohamad Nazri Husin, Tony Augustine, R. U. Gobithaasan, Michael Easuraja</p>
+      <p class="journal">Mathematics <span class="year">(2023)</span></p>
+      <a class="pub-link" href="https://www.mdpi.com/2227-7390/11/11/2443" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>14. Computation of Wiener Descriptor for Melamine Cyanuric Acid Structure</h3>
+      <p class="authors"><b>Sahaya Vijay Jeyaraj</b>, S. Roy</p>
+      <p class="journal">Polycyclic Aromatic Compounds <span class="year">(2023)</span></p>
+      <a class="pub-link" href="https://www.tandfonline.com/doi/abs/10.1080/10406638.2023.2186441" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+    <div class="pub-card">
+      <h3>15. Topological Study on Degree-Based Molecular Descriptors of Fullerene Cages</h3>
+      <p class="authors">T. Augustine, S. Roy, <b>Sahaya Vijay Jeyaraj</b>, J. Maria Thomas, P. Shanmugam</p>
+      <p class="journal">Molecular Physics <span class="year">(2023)</span></p>
+      <a class="pub-link" href="https://www.tandfonline.com/doi/abs/10.1080/00268976.2023.2179858" target="_blank" rel="noopener">View Publication</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <h2 class="section-title">Contact</h2>
+    <div class="section-rule"></div>
+    <p class="focus-lead">If you have any questions or would like to collaborate, please feel free to get in touch.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p><a href="mailto:sahaya.research@gmail.com">sahaya.research@gmail.com</a></p>
+        <p><a href="mailto:jeyaraj.sahayavijay@nims.go.jp">jeyaraj.sahayavijay@nims.go.jp</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>Postal Address</h3>
+        <p>National Institute for Materials Science (NIMS)</p>
+        <p>Mathematical Catalysis Research Team</p>
+        <p>1-1 Namiki, Tsukuba, 305-0044, Japan</p>
+        <p>Office: WPI-MANA Bldg. W402 &nbsp;·&nbsp; Lab: MANA Bldg. 510</p>
+      </div>
+      <div class="contact-card">
+        <h3>Research Collaboration</h3>
+        <p>I welcome discussions on mathematical modelling, computational science, AI, and interdisciplinary research.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="fnav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <small>&copy; 2026 Sahaya Vijay Jeyaraj </small>
+</footer>
+
+<!--
+  Citations / h-index auto-update:
+  The script below reads scholar-stats.json (kept next to this file) and fills in the
+  Citations and h-index cards. To update the numbers you have two options:
+    1) MANUAL  — open scholar-stats.json and edit the values, OR just type the number
+                 directly between the <b id="stat-citations">…</b> tags above.
+    2) AUTOMATIC — if this site is hosted (e.g. GitHub Pages), a scheduled job can
+                 refresh scholar-stats.json from Google Scholar and the page will pick
+                 it up automatically. (Google Scholar has no public API and blocks
+                 direct browser requests, so the fetch must happen server-side / in a job.)
+-->
+<script>
+  fetch('scholar-stats.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d) return;
+      if (d.citations != null)    document.getElementById('stat-citations').textContent = d.citations;
+      if (d.hindex != null)       document.getElementById('stat-hindex').textContent = d.hindex;
+      if (d.publications != null) document.getElementById('stat-pubs').textContent = d.publications;
+    })
+    .catch(function () { /* keep the inline fallback values */ });
+</script>
+
+</body>
+</html>
