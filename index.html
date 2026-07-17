@@ -77,40 +77,42 @@ a{color:var(--blue);}
 }
 .nav-links a:hover{background:rgba(255,255,255,.12);color:#fff;}
 
-/* ---------- Hero (capped height, title kept at top, never cropped off) ---------- */
+/* ---------- Hero (image with text overlaid — same on desktop & mobile) ---------- */
 .hero{
   position:relative;
-  background:var(--navy);
-  color:#fff;
+  min-height:460px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
+  color:#fff;
   overflow:hidden;
+  background:var(--navy);
 }
 .hero-bg{
-  display:block;
+  position:absolute;
+  inset:0;
   width:100%;
-  height:auto;
-  max-height:460px;          /* keeps the banner compact */
-  object-fit:cover;
-  object-position:center 18%; /* anchor near the top so the banner title stays visible */
+  height:100%;
+  object-fit:cover;            /* image fills the hero at any screen size */
+  object-position:center 20%;  /* anchor near the top so the banner title stays visible */
+  z-index:0;
 }
 .hero-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(rgba(10,20,38,.42),rgba(10,25,45,.7));
+  background:linear-gradient(rgba(10,20,38,.45),rgba(10,25,45,.72));
+  z-index:1;
   pointer-events:none;
 }
 .hero-content{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  text-shadow:0 2px 14px rgba(0,0,0,.6);
+  position:relative;           /* text sits ON TOP of the image, always */
+  z-index:2;
+  padding:40px 20px;
+  text-shadow:0 2px 14px rgba(0,0,0,.65);
 }
 .hero-content h1{
-  font-size:clamp(26px,4.2vw,46px);
+  font-size:clamp(26px,5vw,46px);
   font-weight:700;
   letter-spacing:.5px;
   line-height:1.15;
@@ -125,13 +127,13 @@ a{color:var(--blue);}
 }
 .hero-tags{
   margin-top:14px;
-  font-size:clamp(13px,1.9vw,18px);
+  font-size:clamp(13px,2vw,18px);
   color:#eef3f9;
 }
 .hero-affil{
   margin-top:8px;
-  font-size:clamp(12px,1.5vw,15px);
-  color:#c7d3e2;
+  font-size:clamp(12px,1.6vw,15px);
+  color:#dbe6f2;
 }
 .hero-cta{
   margin-top:24px;
@@ -155,16 +157,9 @@ a{color:var(--blue);}
 .btn-ghost{border:1.5px solid rgba(255,255,255,.75);color:#fff;background:rgba(10,20,38,.25);}
 .btn-ghost:hover{background:rgba(255,255,255,.18);}
 
-/* On narrow screens, stack: banner on top, text below on navy */
-@media(max-width:900px){
-  .hero-bg{max-height:230px;}
-  .hero-overlay{display:none;}
-  .hero-content{
-    position:static;
-    padding:28px 20px 40px;
-    text-shadow:none;
-  }
-}
+/* keep the hero a sensible height on phones so the overlaid text stays centred */
+@media(max-width:900px){ .hero{min-height:400px;} }
+@media(max-width:560px){ .hero{min-height:360px;} .hero-content{padding:32px 18px;} }
 
 /* ---------- Sections ---------- */
 section{padding:72px 24px;}
@@ -363,6 +358,7 @@ footer .fnav{margin-bottom:12px;}
 footer .fnav a{color:#cdd8e6;text-decoration:none;margin:0 12px;font-size:14px;}
 footer .fnav a:hover{color:#fff;}
 footer small{color:#8595a9;}
+footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
 
 /* ---------- Responsive ---------- */
 @media(max-width:760px){
@@ -654,19 +650,14 @@ footer small{color:#8595a9;}
     <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </div>
-  <small>&copy; 2026 Sahaya Vijay Jeyaraj </small>
+  <small>&copy; 2026 Sahaya Vijay Jeyaraj</small>
+  <p class="updated">Last updated: <span id="last-updated">—</span></p>
 </footer>
 
 <!--
   Citations / h-index auto-update:
   The script below reads scholar-stats.json (kept next to this file) and fills in the
-  Citations and h-index cards. To update the numbers you have two options:
-    1) MANUAL  — open scholar-stats.json and edit the values, OR just type the number
-                 directly between the <b id="stat-citations">…</b> tags above.
-    2) AUTOMATIC — if this site is hosted (e.g. GitHub Pages), a scheduled job can
-                 refresh scholar-stats.json from Google Scholar and the page will pick
-                 it up automatically. (Google Scholar has no public API and blocks
-                 direct browser requests, so the fetch must happen server-side / in a job.)
+  Citations and h-index cards. Update the numbers by editing scholar-stats.json.
 -->
 <script>
   fetch('scholar-stats.json', { cache: 'no-store' })
@@ -678,6 +669,16 @@ footer small{color:#8595a9;}
       if (d.publications != null) document.getElementById('stat-pubs').textContent = d.publications;
     })
     .catch(function () { /* keep the inline fallback values */ });
+
+  // Footer "Last updated" — uses the file's own last-modified date (auto-updates on each deploy)
+  (function () {
+    var el = document.getElementById('last-updated');
+    if (!el) return;
+    var d = new Date(document.lastModified);
+    el.textContent = isNaN(d.getTime())
+      ? new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+      : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  })();
 </script>
 
 </body>
