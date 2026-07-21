@@ -3,7 +3,7 @@
     <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e1c33"/><stop offset="1" stop-color="#1b3a63"/></linearGradient>
   </defs>
   <rect width="400" height="200" fill="url(#bg1)"/>
-  <text x="200" y="24" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-size="14">molecular graph &#8594; topological index &#8594; property</text>
+  <text x="200" y="24" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-size="14">Molecular graph &#8594; Topological index &#8594; Property</text>
   <line x1="200" y1="38" x2="200" y2="185" stroke="#2c5580" stroke-width="1" stroke-dasharray="3 4"/>
 
   <!-- LEFT: molecular graph -->

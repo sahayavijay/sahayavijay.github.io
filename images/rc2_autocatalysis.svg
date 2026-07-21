@@ -4,7 +4,7 @@
     <marker id="ah2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#14b8a1"/></marker>
   </defs>
   <rect width="400" height="200" fill="url(#bg2)"/>
-  <text x="200" y="24" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-size="14">a species catalyses its own formation</text>
+  <text x="200" y="24" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-size="14">A species catalyses its own formation</text>
   <line x1="200" y1="38" x2="200" y2="185" stroke="#2c5580" stroke-width="1" stroke-dasharray="3 4"/>
 
   <!-- LEFT: autocatalytic cycle -->

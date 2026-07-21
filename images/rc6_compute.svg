@@ -4,7 +4,7 @@
     <marker id="ah6" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#14b8a1"/></marker>
   </defs>
   <rect width="400" height="200" fill="url(#bg6)"/>
-  <text x="200" y="22" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-size="14">open code: structure &#8594; descriptors</text>
+  <text x="200" y="22" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-size="14">Open code: Structure &#8594; Descriptors</text>
   <!-- molecular graph input -->
   <g stroke="#5b7ba6" stroke-width="2">
     <line x1="45" y1="80" x2="75" y2="65"/><line x1="75" y1="65" x2="95" y2="95"/>

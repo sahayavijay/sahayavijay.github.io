@@ -4,7 +4,7 @@
     <marker id="ah3" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L5,3 L0,6 Z" fill="#7dd3fc"/></marker>
   </defs>
   <rect width="400" height="200" fill="url(#bg3)"/>
-  <text x="200" y="24" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-style="italic" font-size="15">dx/dt = f(x)&#160;&#160;&#8212;&#160;&#160;kinetics as ODEs</text>
+  <text x="200" y="24" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-style="italic" font-size="15">dx/dt = f(x)&#160;&#160;&#8212;&#160;&#160;Kinetics as ODEs</text>
   <g stroke="#3a5a86" stroke-width="1.5"><line x1="55" y1="45" x2="55" y2="172"/><line x1="55" y1="172" x2="380" y2="172"/></g>
   <line x1="55" y1="95" x2="380" y2="95" stroke="#c9a24a" stroke-width="2" stroke-dasharray="7 5"/>
   <text x="330" y="88" fill="#c9a24a" font-family="sans-serif" font-size="11">steady state</text>

@@ -4,7 +4,7 @@
     <marker id="ah5" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L5,3 L0,6 Z" fill="#c9a24a"/></marker>
   </defs>
   <rect width="400" height="200" fill="url(#bg5)"/>
-  <text x="200" y="24" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-size="14">two stable states separated by a threshold</text>
+  <text x="200" y="24" text-anchor="middle" fill="#eaf1fb" font-family="Georgia, serif" font-size="14">Two stable states separated by a threshold</text>
   <g stroke="#3a5a86" stroke-width="1.5"><line x1="45" y1="45" x2="45" y2="175"/><line x1="45" y1="175" x2="380" y2="175"/></g>
   <!-- double well -->
   <path d="M60 70 C120 70 128 150 175 150 C210 150 205 96 212 96 C219 96 214 150 250 150 C300 150 305 70 365 70"
