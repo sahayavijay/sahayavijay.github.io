@@ -347,6 +347,52 @@ section{padding:72px 24px;}
 .contact-card a{color:var(--teal-dark);font-weight:600;text-decoration:none;word-break:break-word;}
 .contact-card a:hover{text-decoration:underline;}
 
+/* ---------- Invitations ---------- */
+.inv-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:20px;
+}
+.inv-card{
+  background:var(--card);
+  border-radius:10px;
+  padding:20px 24px;
+  box-shadow:0 4px 16px rgba(0,0,0,.06);
+  border-left:5px solid var(--accent);
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  transition:.2s;
+}
+.inv-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1);}
+.inv-icon{
+  font-size:26px;
+  line-height:1;
+  flex-shrink:0;
+  margin-top:2px;
+}
+.inv-body{}
+.inv-type{
+  font-size:11.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  color:var(--accent);
+  margin-bottom:4px;
+}
+.inv-title{
+  font-size:16px;
+  font-weight:600;
+  color:var(--navy);
+  line-height:1.35;
+  margin-bottom:6px;
+}
+.inv-meta{
+  font-size:13.5px;
+  color:var(--muted);
+}
+.inv-meta span{color:var(--navy-2);font-weight:500;}
+
 /* ---------- Footer ---------- */
 footer{
   background:var(--navy);
@@ -380,6 +426,7 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#invitations">Invitations</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -488,6 +535,71 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
           <figcaption class="rc-cap">Open Python tools (PyTIE) take a molecular graph as input and compute its topological descriptors and molecular entropy automatically, at scale.</figcaption>
         </figure>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INVITATIONS ================= -->
+<section id="invitations">
+  <div class="wrap">
+    <h2 class="section-title">Invitations</h2>
+    <div class="section-rule"></div>
+    <div class="inv-grid">
+
+      <div class="inv-card">
+        <div class="inv-icon">🎤</div>
+        <div class="inv-body">
+          <div class="inv-type">Invited Talk</div>
+          <div class="inv-title">Mathematical Modelling of Chemical Reaction Networks</div>
+          <div class="inv-meta"><span>NIMS Open Seminar</span> &nbsp;·&nbsp; Tsukuba, Japan &nbsp;·&nbsp; 2026</div>
+        </div>
+      </div>
+
+      <div class="inv-card">
+        <div class="inv-icon">✍️</div>
+        <div class="inv-body">
+          <div class="inv-type">Peer Reviewer</div>
+          <div class="inv-title">Manuscript Review — Physical Review E</div>
+          <div class="inv-meta"><span>American Physical Society</span> &nbsp;·&nbsp; 2025–26</div>
+        </div>
+      </div>
+
+      <div class="inv-card">
+        <div class="inv-icon">🏛️</div>
+        <div class="inv-body">
+          <div class="inv-type">Conference Presentation</div>
+          <div class="inv-title">Autocatalysis and the Origin of Life — Kinetic Boundary Analysis</div>
+          <div class="inv-meta"><span>International Symposium on Chemical Complexity</span> &nbsp;·&nbsp; 2025</div>
+        </div>
+      </div>
+
+      <div class="inv-card">
+        <div class="inv-icon">✍️</div>
+        <div class="inv-body">
+          <div class="inv-type">Peer Reviewer</div>
+          <div class="inv-title">Manuscript Review — ACS Omega</div>
+          <div class="inv-meta"><span>American Chemical Society</span> &nbsp;·&nbsp; 2024–25</div>
+        </div>
+      </div>
+
+      <div class="inv-card">
+        <div class="inv-icon">🤝</div>
+        <div class="inv-body">
+          <div class="inv-type">Research Collaboration</div>
+          <div class="inv-title">Topological Descriptors for Nanomaterials — Joint Project</div>
+          <div class="inv-meta"><span>Universiti Malaysia Terengganu</span> &nbsp;·&nbsp; Malaysia &nbsp;·&nbsp; 2024</div>
+        </div>
+      </div>
+
+      <div class="inv-card">
+        <div class="inv-icon">📚</div>
+        <div class="inv-body">
+          <div class="inv-type">Guest Lecture</div>
+          <div class="inv-title">Introduction to Chemical Graph Theory and Molecular Descriptors</div>
+          <div class="inv-meta"><span>Department of Mathematics, Karunya University</span> &nbsp;·&nbsp; India &nbsp;·&nbsp; 2023</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -654,6 +766,7 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#research">Research</a>
+    <a href="#invitations">Invitations</a>
     <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </div>
