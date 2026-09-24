@@ -1,5 +1,9 @@
 {
   "publications": 16,
+<<<<<<< HEAD
   "citations": 104,
+=======
+  "citations": 98,
+>>>>>>> 078faef36a5d46e4def4dd831b0c9bce40143f34
   "hindex": 6
 }
