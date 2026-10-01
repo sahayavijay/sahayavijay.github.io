@@ -30,9 +30,11 @@ body{
   background:var(--bg);
   line-height:1.6;
   font-size:17px;
+  overflow-wrap:break-word;   /* never let a long word push the page wider */
 }
 
 a{color:var(--blue);}
+img, svg{max-width:100%;}      /* keep every image inside the page width */
 
 /* ---------- Navigation ---------- */
 .navbar{
@@ -65,6 +67,7 @@ a{color:var(--blue);}
   list-style:none;
   display:flex;
   flex-wrap:wrap;
+  align-items:center;
   gap:6px;
 }
 .nav-links a{
@@ -76,6 +79,45 @@ a{color:var(--blue);}
   transition:.2s;
 }
 .nav-links a:hover{background:rgba(255,255,255,.12);color:#fff;}
+.nav-links a.nav-cv{background:var(--accent);color:#22304a;font-weight:700;}
+.nav-links a.nav-cv:hover{background:#dcb45f;color:#22304a;}
+
+/* Research dropdown (groups the achievements: Skills, Talks, Publications) */
+.nav-dd{position:relative;}
+.nav-dd details > summary{
+  list-style:none;
+  cursor:pointer;
+  color:#dbe4f0;
+  font-size:15px;
+  padding:8px 14px;
+  border-radius:6px;
+  transition:.2s;
+  user-select:none;
+}
+.nav-dd details > summary::-webkit-details-marker{display:none;}
+.nav-dd details > summary:hover,
+.nav-dd details[open] > summary{background:rgba(255,255,255,.12);color:#fff;}
+.dd-menu{
+  list-style:none;
+  position:absolute;
+  top:calc(100% + 6px);
+  left:0;
+  background:#1b3a63;
+  border-radius:8px;
+  padding:6px;
+  min-width:200px;
+  box-shadow:0 10px 26px rgba(0,0,0,.32);
+  z-index:60;
+}
+.dd-menu a{
+  display:block;
+  color:#dbe4f0;
+  text-decoration:none;
+  font-size:14.5px;
+  padding:9px 14px;
+  border-radius:6px;
+}
+.dd-menu a:hover{background:rgba(255,255,255,.14);color:#fff;}
 
 /* ---------- Hero (image with text overlaid - same on desktop & mobile) ---------- */
 .hero{
@@ -94,8 +136,8 @@ a{color:var(--blue);}
   inset:0;
   width:100%;
   height:100%;
-  object-fit:cover;            /* image fills the hero at any screen size */
-  object-position:center 20%;  /* anchor near the top so the banner title stays visible */
+  object-fit:cover;
+  object-position:center 20%;
   z-index:0;
 }
 .hero-overlay{
@@ -106,7 +148,7 @@ a{color:var(--blue);}
   pointer-events:none;
 }
 .hero-content{
-  position:relative;           /* text sits ON TOP of the image, always */
+  position:relative;
   z-index:2;
   padding:40px 20px;
   text-shadow:0 2px 14px rgba(0,0,0,.65);
@@ -156,8 +198,9 @@ a{color:var(--blue);}
 .btn-primary:hover{background:#0a9a83;}
 .btn-ghost{border:1.5px solid rgba(255,255,255,.75);color:#fff;background:rgba(10,20,38,.25);}
 .btn-ghost:hover{background:rgba(255,255,255,.18);}
+.btn-cv{background:var(--accent);color:#22304a;}
+.btn-cv:hover{background:#dcb45f;}
 
-/* keep the hero a sensible height on phones so the overlaid text stays centred */
 @media(max-width:900px){ .hero{min-height:400px;} }
 @media(max-width:560px){ .hero{min-height:360px;} .hero-content{padding:32px 18px;} }
 
@@ -197,6 +240,7 @@ section{padding:72px 24px;}
   font-size:14px;
   color:var(--muted);
 }
+.about-photo .btn-cv{display:inline-block;margin-top:16px;width:100%;text-align:center;}
 .about-text p{margin-bottom:16px;color:#38434f;}
 .quote{
   margin-top:24px;
@@ -233,7 +277,7 @@ section{padding:72px 24px;}
 .research-card p{font-size:15.5px;color:#495260;}
 .research-card .rc-fig{
   margin:0;
-  margin-top:auto;          /* pins the figure to the bottom of the card */
+  margin-top:auto;
 }
 .research-card .rc-img{
   display:block;
@@ -254,6 +298,72 @@ section{padding:72px 24px;}
   max-width:1100px;
   margin-bottom:36px;
 }
+
+/* ---------- Skills (image-led, plain-language) ---------- */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(265px,1fr));
+  gap:24px;
+}
+.skill-card{
+  display:flex;
+  flex-direction:column;
+  background:var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 6px 22px rgba(0,0,0,.07);
+  transition:.2s;
+}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12);}
+.skill-icon{
+  background:linear-gradient(135deg,#0e1c33,#1b3a63);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.skill-icon svg{width:135px;height:92px;}
+.skill-body{padding:22px 24px 24px;border-top:4px solid var(--blue);}
+.skill-body h3{color:var(--navy);font-size:18px;margin-bottom:8px;}
+.skill-explain{font-size:14.5px;color:#495260;margin-bottom:12px;}
+.skill-tools{font-size:13px;color:var(--navy-2);font-weight:600;overflow-wrap:anywhere;}
+.skill-tools a{color:var(--teal-dark);font-weight:700;text-decoration:none;overflow-wrap:anywhere;}
+.skill-tools a:hover{text-decoration:underline;}
+
+/* ---------- Talks & Presentations ---------- */
+.talk-group-title{
+  font-size:21px;
+  color:var(--navy);
+  font-weight:700;
+  margin:34px 0 18px;
+}
+.talk-group-title:first-of-type{margin-top:0;}
+.talk-item{
+  background:var(--card);
+  border-radius:10px;
+  padding:18px 22px;
+  margin-bottom:14px;
+  box-shadow:0 4px 16px rgba(0,0,0,.06);
+  border-left:5px solid var(--accent);
+}
+.talk-item .role{
+  display:inline-block;
+  font-size:11.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:#fff;
+  background:var(--teal);
+  padding:3px 11px;
+  border-radius:20px;
+  margin-bottom:9px;
+}
+.talk-item .role.keynote{background:var(--accent);color:#3a2e07;}
+.talk-item .role.invited{background:var(--blue);}
+.talk-item .role.resource{background:var(--teal-dark);}
+.talk-item h4{font-size:16px;color:var(--navy-2);margin-bottom:6px;line-height:1.4;}
+.talk-item .venue{font-size:14px;color:var(--muted);line-height:1.5;}
+.talk-item .venue .date{color:var(--navy);font-weight:600;}
 
 /* ---------- Publications ---------- */
 .pub-meta{
@@ -344,7 +454,7 @@ section{padding:72px 24px;}
 }
 .contact-card h3{color:var(--navy);font-size:18px;margin-bottom:12px;}
 .contact-card p{font-size:15.5px;color:#414b58;margin-bottom:6px;}
-.contact-card a{color:var(--teal-dark);font-weight:600;text-decoration:none;word-break:break-word;}
+.contact-card a{color:var(--teal-dark);font-weight:600;text-decoration:none;overflow-wrap:anywhere;}
 .contact-card a:hover{text-decoration:underline;}
 
 /* ---------- Footer ---------- */
@@ -355,7 +465,7 @@ footer{
   padding:34px 24px;
 }
 footer .fnav{margin-bottom:12px;}
-footer .fnav a{color:#cdd8e6;text-decoration:none;margin:0 12px;font-size:14px;}
+footer .fnav a{color:#cdd8e6;text-decoration:none;margin:0 10px;font-size:14px;}
 footer .fnav a:hover{color:#fff;}
 footer small{color:#8595a9;}
 footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
@@ -366,6 +476,7 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
   .about-photo{max-width:280px;margin:auto;}
   section{padding:52px 20px;}
   .nav-inner{justify-content:center;}
+  .dd-menu{left:auto;}
 }
 </style>
 </head>
@@ -378,9 +489,19 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#publications">Publications</a></li>
+      <li class="nav-dd">
+        <details>
+          <summary>Research &#9662;</summary>
+          <ul class="dd-menu">
+            <li><a href="#research">Research Interests</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#talks">Talks</a></li>
+            <li><a href="#publications">Publications</a></li>
+          </ul>
+        </details>
+      </li>
       <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-cv" href="CV_Sahaya_Vijay_Jeyaraj.pdf" target="_blank" rel="noopener" download>CV &#8595;</a></li>
     </ul>
   </div>
 </nav>
@@ -431,7 +552,7 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
       <div class="research-card">
         <div class="rc-body">
           <h3>Chemical Graph Theory</h3>
-          <p>Topological indices and molecular descriptors for quantitative structure–property relationship (QSPR) analysis, entropy measures, and the physicochemical characterization of metamaterials and drug-related structures.</p>
+          <p>Topological indices and molecular descriptors for quantitative structure-property relationship (QSPR) analysis, entropy measures, and the physicochemical characterization of metamaterials and drug-related structures.</p>
         </div>
         <figure class="rc-fig">
           <img class="rc-img" src="images/rc1_graph.svg" alt="Molecular graph mapped to a property by regression">
@@ -492,6 +613,198 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
   </div>
 </section>
 
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="alt">
+  <div class="wrap">
+    <h2 class="section-title">Skills &amp; Expertise</h2>
+    <div class="section-rule"></div>
+    <p class="focus-lead">Each card uses a simple picture and a plain-language note, so the tools and methods make sense even to readers outside my field.</p>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 135 92" role="img" aria-label="Code brackets">
+            <g fill="none" stroke="#7dd3fc" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="48,30 28,46 48,62"/>
+              <polyline points="87,30 107,46 87,62"/>
+            </g>
+            <line x1="74" y1="26" x2="61" y2="66" stroke="#c9a24a" stroke-width="5.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="skill-body">
+          <h3>Programming</h3>
+          <p class="skill-explain">I write computer programs that run the mathematical models and simulations behind my research.</p>
+          <p class="skill-tools">Python · C++ · Java · HTML · CSS</p>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 135 92" role="img" aria-label="Gear and chart">
+            <g stroke="#14b8a1" stroke-width="5" fill="none" stroke-linecap="round">
+              <circle cx="46" cy="46" r="16"/>
+              <line x1="46" y1="20" x2="46" y2="28"/><line x1="46" y1="64" x2="46" y2="72"/>
+              <line x1="20" y1="46" x2="28" y2="46"/><line x1="64" y1="46" x2="72" y2="46"/>
+              <line x1="29" y1="29" x2="34" y2="34"/><line x1="58" y1="58" x2="63" y2="63"/>
+              <line x1="63" y1="29" x2="58" y2="34"/><line x1="34" y1="58" x2="29" y2="63"/>
+            </g>
+            <circle cx="46" cy="46" r="5" fill="#14b8a1"/>
+            <g fill="#c9a24a"><rect x="86" y="50" width="9" height="22"/><rect x="100" y="38" width="9" height="34"/><rect x="114" y="28" width="9" height="44"/></g>
+          </svg>
+        </div>
+        <div class="skill-body">
+          <h3>Scientific Software</h3>
+          <p class="skill-explain">Specialised tools for heavy calculation, symbolic mathematics, and preparing scientific documents.</p>
+          <p class="skill-tools">MATLAB · Mathematica · Chemcraft · LaTeX · Flash8</p>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 135 92" role="img" aria-label="Network and curve">
+            <g stroke="#4a6a95" stroke-width="3.5"><line x1="26" y1="34" x2="52" y2="24"/><line x1="52" y1="24" x2="64" y2="50"/><line x1="26" y1="34" x2="38" y2="62"/><line x1="38" y1="62" x2="64" y2="50"/></g>
+            <g fill="#14b8a1"><circle cx="26" cy="34" r="6.5"/><circle cx="52" cy="24" r="6.5"/><circle cx="64" cy="50" r="7.5" fill="#c9a24a"/><circle cx="38" cy="62" r="6.5"/></g>
+            <path d="M82 66 C96 66 100 30 124 26" fill="none" stroke="#7dd3fc" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="skill-body">
+          <h3>Research Methods</h3>
+          <p class="skill-explain">The mathematical techniques I use to describe how chemicals react and change over time.</p>
+          <p class="skill-tools">ODE modelling · reaction networks · graph theory · QSPR · machine learning · impedance analysis</p>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 135 92" role="img" aria-label="Software package and graph">
+            <g stroke="#14b8a1" stroke-width="4.5" fill="none" stroke-linejoin="round">
+              <path d="M34 34 L56 22 L78 34 L78 58 L56 70 L34 58 Z"/>
+              <line x1="34" y1="34" x2="56" y2="46"/><line x1="78" y1="34" x2="56" y2="46"/><line x1="56" y1="46" x2="56" y2="70"/>
+            </g>
+            <g stroke="#4a6a95" stroke-width="3"><line x1="98" y1="34" x2="108" y2="48"/><line x1="108" y1="48" x2="98" y2="62"/></g>
+            <g fill="#7dd3fc"><circle cx="98" cy="34" r="5.5"/><circle cx="109" cy="48" r="5.5" fill="#c9a24a"/><circle cx="98" cy="62" r="5.5"/></g>
+          </svg>
+        </div>
+        <div class="skill-body">
+          <h3>Software I Built</h3>
+          <p class="skill-explain">Open-source Python tools (PyTIE) I developed that measure the structure of molecules automatically.</p>
+          <p class="skill-tools">PyTIE_D · PyTIE_DS · PyTIE_SMS_DE · PyTIE_SMS_DSE &nbsp;—&nbsp; <a href="https://github.com/sahayavijay/PyTIE-0.0.1.git" target="_blank" rel="noopener">GitHub ↗</a></p>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 135 92" role="img" aria-label="Certificate medal">
+            <circle cx="67" cy="38" r="21" fill="none" stroke="#c9a24a" stroke-width="5"/>
+            <path d="M67 27 l3.4 7 7.6 0.8 -5.7 5.1 1.6 7.5 -6.9 -3.8 -6.9 3.8 1.6 -7.5 -5.7 -5.1 7.6 -0.8 z" fill="#c9a24a"/>
+            <path d="M54 56 L47 78 L67 69 L87 78 L80 56" fill="none" stroke="#14b8a1" stroke-width="4.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="skill-body">
+          <h3>Certifications</h3>
+          <p class="skill-explain">Certified training in using Python for machine learning.</p>
+          <p class="skill-tools">Python Programming for Machine Learning (Certificate No. 1BHGBFVZ)</p>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 135 92" role="img" aria-label="Language speech bubble">
+            <path d="M40 24 H92 a9 9 0 0 1 9 9 V55 a9 9 0 0 1 -9 9 H60 L45 78 V64 H40 a9 9 0 0 1 -9 -9 V33 a9 9 0 0 1 9 -9 Z" fill="none" stroke="#14b8a1" stroke-width="4.5"/>
+            <text x="54" y="52" fill="#7dd3fc" font-size="22" font-weight="bold" font-family="Georgia, serif">A</text>
+            <text x="72" y="52" fill="#c9a24a" font-size="22" font-weight="bold" font-family="sans-serif">&#2949;</text>
+          </svg>
+        </div>
+        <div class="skill-body">
+          <h3>Languages</h3>
+          <p class="skill-explain">Languages I read, write, and speak fluently.</p>
+          <p class="skill-tools">English · Tamil</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= TALKS & PRESENTATIONS ================= -->
+<section id="talks">
+  <div class="wrap">
+    <h2 class="section-title">Talks &amp; Presentations</h2>
+    <div class="section-rule"></div>
+    <p class="focus-lead">Invited lectures, keynote addresses, and conference presentations on chemical reaction networks, mathematical biology, and chemical graph theory.</p>
+
+    <h3 class="talk-group-title">Invited &amp; Keynote Talks</h3>
+
+    <div class="talk-item">
+      <span class="role resource">Resource Person</span>
+      <h4>Mathematical Tools and Modern Techniques for Research, Thesis Writing and Scholarly Publication</h4>
+      <p class="venue">Dhanalakshmi Srinivasan University, Tiruchirappalli, India &nbsp;·&nbsp; <span class="date">8 September 2026</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role invited">Invited Speaker</span>
+      <h4>International Faculty Development Programme: Enhancing Research Capacity - Publication, Grants and Research Impact</h4>
+      <p class="venue">Dhanalakshmi Srinivasan University, Tiruchirappalli, India &nbsp;·&nbsp; <span class="date">27 August 2026</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role keynote">Keynote</span>
+      <h4>3rd International Conference on Recent Trends in Data Science (ICRTDS-2026)</h4>
+      <p class="venue">St. Xavier's College (Autonomous), Palayamkottai, India &nbsp;·&nbsp; <span class="date">5-6 March 2026</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role keynote">Keynote</span>
+      <h4>3rd International Conference on Innovation in Science and Humanities (ICISH-2025)</h4>
+      <p class="venue">Saveetha Engineering College, Chennai, India &nbsp;·&nbsp; <span class="date">19-20 August 2025</span></p>
+    </div>
+
+    <h3 class="talk-group-title">Conference &amp; Symposium Presentations</h3>
+
+    <div class="talk-item">
+      <span class="role">Presentation</span>
+      <h4>Calculating the Lifetime of Autocatalytic Networks</h4>
+      <p class="venue">Joint Conference of the Asian Conference on Mathematical Biology &amp; Annual Meeting of the Japanese Society for Mathematical Biology, Kyoto Terrsa, Kyoto, Japan &nbsp;·&nbsp; <span class="date">11-17 July 2025</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role">Presentation</span>
+      <h4>Timescale Decomposition of Linear Chemical Reaction Networks</h4>
+      <p class="venue">Asian Conference for Mathematical Biology, Kyoto Terrsa, Kyoto, Japan &nbsp;·&nbsp; <span class="date">11-17 July 2025</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role">Presentation</span>
+      <h4>Analyzing the Stability of Autocatalytic Chemical Reaction Networks Based on their Amplification Rate</h4>
+      <p class="venue">Japan Geoscience Union Meeting 2025, Makuhari Messe, Chiba, Japan &nbsp;·&nbsp; <span class="date">29 May 2025</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role">Presentation</span>
+      <h4>Calculating the Lifetime of Autocatalytic Chemical Reaction Networks</h4>
+      <p class="venue">CSRS Interim Progress Report Meeting, RIKEN Yokohama Campus, Yokohama, Japan &nbsp;·&nbsp; <span class="date">17 November 2025</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role">Presentation</span>
+      <h4>A Cut-Method Technique Used on Topological Descriptors of Melamine Cyanuric Acid</h4>
+      <p class="venue">International Conference on Mathematics and Its Applications (ICMA-2024), Sacred Heart College (Autonomous), Tirupattur, India &nbsp;·&nbsp; <span class="date">15-16 February 2024</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role">Presentation</span>
+      <h4>Topological Properties and Entropy Calculations of Aluminophosphates</h4>
+      <p class="venue">International Conference on Modelling, Simulation and Optimization of Energy Systems (MSOES-2023), Canadian University Dubai, UAE &nbsp;·&nbsp; <span class="date">17-18 June 2023</span></p>
+    </div>
+
+    <div class="talk-item">
+      <span class="role">Presentation</span>
+      <h4>Computation of Wiener Descriptor for Melamine Cyanuric Acid Structure</h4>
+      <p class="venue">International Conference on Recent Developments in Mathematics (ICRDM-2022), Canadian University Dubai, UAE &nbsp;·&nbsp; <span class="date">24-26 August 2022</span></p>
+    </div>
+  </div>
+</section>
+
 <!-- ================= PUBLICATIONS ================= -->
 <section id="publications" class="alt">
   <div class="wrap">
@@ -500,7 +813,7 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
     <p class="focus-lead">Peer-reviewed research in mathematical modelling, topological analysis, molecular descriptors, and computational science.</p>
     <div class="pub-meta">
       <div class="pub-stat"><b id="stat-pubs">16</b><span>Publications</span></div>
-      <div class="pub-stat"><b>2023–26</b><span>Active Years</span></div>
+      <div class="pub-stat"><b>2023-26</b><span>Active Years</span></div>
       <div class="pub-stat"><b id="stat-citations">-</b><span>Citations</span></div>
       <div class="pub-stat"><b id="stat-hindex">-</b><span>h-index</span></div>
       <a class="scholar-btn" href="https://scholar.google.com/citations?user=iJlA0VQAAAAJ&amp;hl=en" target="_blank" rel="noopener">View on Google Scholar ↗</a>
@@ -641,8 +954,12 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
         <p>Office: WPI-MANA Bldg. W402 &nbsp;·&nbsp; Lab: MANA Bldg. 510</p>
       </div>
       <div class="contact-card">
-        <h3>Research Collaboration</h3>
-        <p>I welcome discussions on mathematical modelling, computational science, AI, and interdisciplinary research.</p>
+        <h3>Academic Profiles</h3>
+        <p><a href="https://scholar.google.com/citations?user=iJlA0VQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ID: iJlA0VQAAAAJ ↗</a></p>
+        <p><a href="https://orcid.org/0000-0001-6672-0092" target="_blank" rel="noopener">ORCID: 0000-0001-6672-0092 ↗</a></p>
+        <p><a href="https://www.scopus.com/authid/detail.uri?authorId=58404666100" target="_blank" rel="noopener">Scopus Author ID: 58404666100 ↗</a></p>
+        <p><a href="https://www.webofscience.com/wos/author/record/AIA-9120-2022" target="_blank" rel="noopener">Web of Science ID: AIA-9120-2022 ↗</a></p>
+        <p><a href="https://github.com/sahayavijay" target="_blank" rel="noopener">GitHub ↗</a></p>
       </div>
     </div>
   </div>
@@ -654,18 +971,12 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </div>
   <small>&copy; 2026 Sahaya Vijay Jeyaraj</small>
   <p class="updated">Last updated: <span id="last-updated">-</span></p>
 </footer>
 
-<!--
-  Citations / h-index auto-update:
-  The script below reads scholar-stats.json (kept next to this file) and fills in the
-  Citations and h-index cards. Update the numbers by editing scholar-stats.json.
--->
 <script>
   fetch('scholar-stats.json', { cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : null; })
@@ -686,6 +997,18 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
       ? new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
       : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   })();
+
+  // Research dropdown: close after choosing an item, and when clicking elsewhere
+  document.querySelectorAll('.dd-menu a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var d = a.closest('details'); if (d) d.open = false;
+    });
+  });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.nav-dd details[open]').forEach(function (d) {
+      if (!d.contains(e.target)) d.open = false;
+    });
+  });
 </script>
 
 </body>
