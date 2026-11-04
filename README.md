@@ -21,6 +21,7 @@ personal_homepage/
 ├── index.html            # the entire site (HTML + CSS in one file)
 ├── scholar-stats.json    # citation count, h-index, publication count
 ├── README.md             # this file
+├── figure_scripts/         # Python scripts that generate the figures
 └── images/
     ├── Profile.jpg           # your profile photo  (replace with your own)
     ├── Img_Home_Page.png     # hero banner image   (replace with your own)

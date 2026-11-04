@@ -1,0 +1,59 @@
+# Real output of PyTIE_D.py (github.com/sahayavijay/PyTIE-0.0.1, commit 59f25a7), run 20261104.
+# Input: 7-dimer armchair ribbon edge partitions at parameter 1 to 6, from rc6_compute.py.
+# (2,2): 6 8 10 12 14 16   (2,3): 12 16 20 24 28 32   (3,3): 12 25 38 51 64 77
+Provide your data to calculate Degree-based Topological Descriptors:
+Specify the minimum degree of a given graph (G): Specify the maximum degree of a given graph (G): Specify the values for partitioning edges in the graph of 1 dimension of (2, 2): Specify the values for partitioning edges in the graph of 2 dimension of (2, 2): Specify the values for partitioning edges in the graph of 3 dimension of (2, 2): Specify the values for partitioning edges in the graph of 4 dimension of (2, 2): Specify the values for partitioning edges in the graph of 5 dimension of (2, 2): Specify the values for partitioning edges in the graph of 6 dimension of (2, 2): Specify the values for partitioning edges in the graph of 1 dimension of (2, 3): Specify the values for partitioning edges in the graph of 2 dimension of (2, 3): Specify the values for partitioning edges in the graph of 3 dimension of (2, 3): Specify the values for partitioning edges in the graph of 4 dimension of (2, 3): Specify the values for partitioning edges in the graph of 5 dimension of (2, 3): Specify the values for partitioning edges in the graph of 6 dimension of (2, 3): Specify the values for partitioning edges in the graph of 1 dimension of (3, 3): Specify the values for partitioning edges in the graph of 2 dimension of (3, 3): Specify the values for partitioning edges in the graph of 3 dimension of (3, 3): Specify the values for partitioning edges in the graph of 4 dimension of (3, 3): Specify the values for partitioning edges in the graph of 5 dimension of (3, 3): Specify the values for partitioning edges in the graph of 6 dimension of (3, 3): Specify the quantity of edge partitions generated above: Edge set partitions of a graph (G):
+2*x + 4
+4*x + 8
+13*x - 1
+Enter the number of numerical values needed?: Python computational expressions for the calculation of topological indices: 
+First Zagreb index = 106*x + 50
+N.V of First Zagreb index =  [156, 262, 368, 474, 580, 686, 792]
+Second Zagreb index = 149*x + 55
+N.V of Second Zagreb index =  [204, 353, 502, 651, 800, 949, 1098]
+Hyper Zagreb index = 600*x + 228
+N.V of Hyper Zagreb index =  [828, 1428, 2028, 2628, 3228, 3828, 4428]
+Third Zagreb index = 4*x + 8
+N.V of Third Zagreb index =  [12, 16, 20, 24, 28, 32, 36]
+Reduced Zagreb index = 62*x + 16
+N.V of Reduced Zagreb index =  [78, 140, 202, 264, 326, 388, 450]
+Second modified Zagreb index = 2.61111111111111*x + 2.22222222222222
+N.V of Second modified Zagreb index =  [4.83333333333333, 7.44444444444444, 10.0555555555556, 12.6666666666667, 15.2777777777778, 17.8888888888889, 20.5000000000000]
+Randic index 6.96632649518879*x + 4.93265299037757
+N.V of Second modified Zagreb index =  [11.8989794855664, 18.8653059807551, 25.8316324759439, 32.7979589711327, 39.7642854663215, 46.7306119615103, 53.6969384566991]
+Reciprocal Randic index = 52.7979589711327*x + 24.5959179422654
+N.V of Reciprocal Randic index =  [77.3938769133981, 130.191835884531, 182.989794855664, 235.787753826796, 288.585712797929, 341.383671769062, 394.181630740194]
+Reduced reciprocal Randic index = 33.6568542494924*x + 13.3137084989848
+N.V of Reduced reciprocal Randic index =  [46.9705627484771, 80.6274169979695, 114.284271247462, 147.941125496954, 181.597979746447, 215.254833995939, 248.911688245431]
+General Randic index = 2.61111111111111*x + 2.22222222222222
+N.V of General Randic index =  [4.83333333333333, 7.44444444444444, 10.0555555555556, 12.6666666666667, 15.2777777777778, 17.8888888888889, 20.5000000000000]
+Atom bond connectivity index = 12.909307353786*x + 7.8186147075719
+N.V of Atom bond connectivity index =  [20.7279220613579, 33.6372294151438, 46.5465367689298, 59.4558441227157, 72.3651514765017, 85.2744588302876, 98.1837661840736]
+Geometric Arithematic index = 18.9191835884531*x + 10.8383671769062
+N.V of Geometric Arithematic index =  [29.7575507653593, 48.6767343538123, 67.5959179422654, 86.5151015307185, 105.434285119172, 124.353468707625, 143.272652296078]
+Harmonic index = 6.93333333333333*x + 4.86666666666667
+N.V of Harmonic index =  [11.8000000000000, 18.7333333333333, 25.6666666666667, 32.6000000000000, 39.5333333333333, 46.4666666666667, 53.4000000000000]
+Sum-connectivity index = 8.09608215803005*x + 5.1694604735358
+N.V of Sum-connectivity index =  [13.2655426315659, 21.3616247895959, 29.4577069476260, 37.5537891056560, 45.6498712636861, 53.7459534217161, 61.8420355797462]
+Inverse sum index = 26.3*x + 12.1
+N.V of Inverse sum index =  [38.4000000000000, 64.7000000000000, 91.0000000000000, 117.300000000000, 143.600000000000, 169.900000000000, 196.200000000000]
+Alberston index = 4*x + 8
+N.V of Alberston index =  [12, 16, 20, 24, 28, 32, 36]
+Symmetric division index = 38.6666666666667*x + 23.3333333333333
+N.V of Symmetric division index =  [62.0000000000000, 100.666666666667, 139.333333333333, 178.000000000000, 216.666666666667, 255.333333333333, 294.000000000000]
+Forgotten index = 302*x + 118
+N.V of Forgotten index =  [420, 722, 1024, 1326, 1628, 1930, 2232]
+Sombor index = 75.233388283899*x + 35.9154780155774
+N.V of Sombor index =  [111.148866299476, 186.382254583375, 261.615642867275, 336.849031151174, 412.082419435073, 487.315807718972, 562.549196002871]
+bi-Zagreb index = 255*x + 105
+N.V of bi-Zagreb index =  [360, 615, 870, 1125, 1380, 1635, 1890]
+Tri-Zagreb index = 451*x + 173
+N.V of Tri-Zagreb index =  [624, 1075, 1526, 1977, 2428, 2879, 3330]
+Geometric Harmonic index = 149.494897427832*x + 55.9897948556636
+N.V of Geometric Harmonic index =  [205.484692283495, 354.979589711327, 504.474487139159, 653.969384566991, 803.464281994822, 952.959179422654, 1102.45407685049]
+Geometric Bi-Zagreb index = 3.99072354283025*x + 2.58144708566049
+N.V of Geometric Bi-Zagreb index =  [6.57217062849074, 10.5628941713210, 14.5536177141512, 18.5443412569815, 22.5350647998117, 26.5257883426420, 30.5165118854722]
+Geometric Tri-Zagreb index = 2.29345982889003*x + 1.58691965778005
+N.V of Geometric Tri-Zagreb index =  [3.88037948667008, 6.17383931556010, 8.46729914445013, 10.7607589733402, 13.0542188022302, 15.3476786311202, 17.6411384600102]
+Harmonic-Geometric index = 2.59764170918663*x + 2.19528341837325
+N.V of Harmonic-Geometric index =  [4.79292512755988, 7.39056683674650, 9.98820854593313, 12.5858502551198, 15.1834919643064, 17.7811336734930, 20.3787753826796]
