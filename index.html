@@ -139,8 +139,8 @@ img, svg{max-width:100%;}      /* keep every image inside the page width */
   transition:.2s;
 }
 .nav-links a:hover{background:rgba(255,255,255,.12);color:#fff;}
-.nav-links a.nav-cv{background:var(--accent);color:#22304a;font-weight:700;}
-.nav-links a.nav-cv:hover{background:#dcb45f;color:#22304a;}
+.nav-links a.nav-cv{background:var(--teal);color:#fff;font-weight:700;}
+.nav-links a.nav-cv:hover{background:#12967f;color:#fff;}
 
 /* Research dropdown (groups the achievements: Skills, Talks, Publications) */
 .nav-dd{position:relative;}
@@ -254,12 +254,8 @@ img, svg{max-width:100%;}      /* keep every image inside the page width */
   transition:.2s;
   text-shadow:none;
 }
-.btn-primary{background:var(--teal);color:#fff;}
-.btn-primary:hover{background:#0a9a83;}
 .btn-ghost{border:1.5px solid rgba(255,255,255,.75);color:#fff;background:rgba(10,20,38,.25);}
 .btn-ghost:hover{background:rgba(255,255,255,.18);}
-.btn-cv{background:var(--accent);color:#22304a;}
-.btn-cv:hover{background:#dcb45f;}
 
 @media(max-width:900px){ .hero{min-height:400px;} }
 @media(max-width:560px){ .hero{min-height:360px;} .hero-content{padding:32px 18px;} }
@@ -300,13 +296,12 @@ section{padding:72px 24px;}
   font-size:14px;
   color:var(--muted);
 }
-.about-photo .btn-cv{display:inline-block;margin-top:16px;width:100%;text-align:center;}
 .about-text p{margin-bottom:16px;color:#38434f;}
 .quote{
   margin-top:24px;
   padding:18px 22px;
   background:linear-gradient(135deg,#f2f6fb,#e7eef7);
-  border-left:5px solid var(--teal);
+  border-left:5px solid var(--teal-dark);
   border-radius:8px;
   font-style:italic;
   color:var(--navy-2);
@@ -378,7 +373,7 @@ section{padding:72px 24px;}
 .skill-fig{margin:0;padding:14px 0 10px;background:#fff;display:flex;justify-content:center;}
 .skill-fig img{display:block;width:172px;height:115px;}
 .skill-body{padding:22px 24px 24px;border-top:4px solid var(--blue);}
-.skill-body h3{color:var(--navy);font-size:18px;margin-bottom:8px;}
+.skill-body h3{color:var(--blue);font-size:18px;margin-bottom:8px;}
 .skill-explain{font-size:14.5px;color:#495260;margin-bottom:12px;}
 .skill-tools{font-size:13px;color:var(--navy-2);font-weight:600;overflow-wrap:anywhere;}
 .skill-tools a{color:var(--teal-dark);font-weight:700;text-decoration:none;overflow-wrap:anywhere;}
@@ -387,7 +382,7 @@ section{padding:72px 24px;}
 /* ---------- Talks & Presentations ---------- */
 .talk-group-title{
   font-size:21px;
-  color:var(--navy);
+  color:var(--blue);
   font-weight:700;
   margin:34px 0 18px;
 }
@@ -398,24 +393,18 @@ section{padding:72px 24px;}
   padding:18px 22px;
   margin-bottom:14px;
   box-shadow:0 4px 16px rgba(0,0,0,.06);
-  border-left:5px solid var(--accent);
+  border-left:5px solid var(--teal-dark);
 }
 .talk-item .role{
-  display:inline-block;
+  display:block;
   font-size:11.5px;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.5px;
-  color:#fff;
-  background:var(--teal);
-  padding:3px 11px;
-  border-radius:20px;
-  margin-bottom:9px;
+  color:var(--muted);
+  margin-bottom:6px;
 }
-.talk-item .role.keynote{background:var(--accent);color:#3a2e07;}
-.talk-item .role.invited{background:var(--blue);}
-.talk-item .role.resource{background:var(--teal-dark);}
-.talk-item h4{font-size:16px;color:var(--navy-2);margin-bottom:6px;line-height:1.4;}
+.talk-item h4{font-size:16px;color:var(--blue);margin-bottom:6px;line-height:1.4;}
 .talk-item .venue{font-size:14px;color:var(--muted);line-height:1.5;}
 .talk-item .venue .date{color:var(--navy);font-weight:600;}
 
@@ -504,9 +493,9 @@ section{padding:72px 24px;}
   border-radius:12px;
   padding:28px;
   box-shadow:0 6px 22px rgba(0,0,0,.07);
-  border-left:5px solid var(--blue);
+  border-left:5px solid var(--teal-dark);
 }
-.contact-card h3{color:var(--navy);font-size:18px;margin-bottom:12px;}
+.contact-card h3{color:var(--blue);font-size:18px;margin-bottom:12px;}
 .contact-card p{font-size:15.5px;color:#414b58;margin-bottom:6px;}
 .contact-card a{color:var(--teal-dark);font-weight:600;text-decoration:none;overflow-wrap:anywhere;}
 .contact-card a:hover{text-decoration:underline;}
@@ -570,7 +559,7 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
     <p class="hero-tags">Applied Mathematics &nbsp;·&nbsp; Chemical Kinetics &nbsp;·&nbsp; Chemical Reaction Networks</p>
     <p class="hero-affil">National Institute for Materials Science (NIMS), Japan</p>
     <div class="hero-cta">
-      <a href="#research" class="btn btn-primary">Explore Research</a>
+      <a href="#research" class="btn btn-ghost">Explore Research</a>
       <a href="#publications" class="btn btn-ghost">View Publications</a>
     </div>
   </div>
