@@ -375,15 +375,14 @@ section{padding:72px 24px;}
   transition:.2s;
 }
 .skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12);}
-.skill-fig{margin:0;background:#fff;}
-.skill-fig img{display:block;width:100%;height:auto;}
+.skill-fig{margin:0;padding:14px 0 10px;background:#fff;display:flex;justify-content:center;}
+.skill-fig img{display:block;width:172px;height:115px;}
 .skill-body{padding:22px 24px 24px;border-top:4px solid var(--blue);}
 .skill-body h3{color:var(--navy);font-size:18px;margin-bottom:8px;}
 .skill-explain{font-size:14.5px;color:#495260;margin-bottom:12px;}
 .skill-tools{font-size:13px;color:var(--navy-2);font-weight:600;overflow-wrap:anywhere;}
 .skill-tools a{color:var(--teal-dark);font-weight:700;text-decoration:none;overflow-wrap:anywhere;}
 .skill-tools a:hover{text-decoration:underline;}
-.skill-cap{margin-top:12px;font-size:12.5px;font-style:italic;line-height:1.5;color:var(--muted);}
 
 /* ---------- Talks & Presentations ---------- */
 .talk-group-title{
@@ -673,66 +672,60 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
   <div class="wrap">
     <h2 class="section-title">Skills &amp; Expertise</h2>
     <div class="section-rule"></div>
-    <p class="focus-lead">Each card pairs a generated figure with a plain-language note, so the tools and methods make sense even to readers outside my field.</p>
+    <p class="focus-lead">Each card uses a simple picture and a plain-language note, so the tools and methods make sense even to readers outside my field.</p>
     <div class="skills-grid">
 
       <div class="skill-card">
-        <figure class="skill-fig"><img src="images/sk1_programming.svg" alt="Stochastic simulation traces of molecule numbers over time with their mean"></figure>
+        <figure class="skill-fig"><img src="images/sk1_programming.svg" alt="A short Python function and the value it prints"></figure>
         <div class="skill-body">
           <h3>Programming</h3>
           <p class="skill-explain">I write computer programs that run the mathematical models and simulations behind my research.</p>
           <p class="skill-tools">Python · C++ · Java · HTML · CSS</p>
-          <p class="skill-cap">A stochastic simulation of molecules forming and decaying, written in Python. Thin lines are single runs.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <figure class="skill-fig"><img src="images/sk2_software.svg" alt="3D energy surface with its minima and saddle points marked"></figure>
+        <figure class="skill-fig"><img src="images/sk2_software.svg" alt="A rate equation and its solution, typeset"></figure>
         <div class="skill-body">
           <h3>Scientific Software</h3>
           <p class="skill-explain">Specialised tools for heavy calculation, symbolic mathematics, and preparing scientific documents.</p>
           <p class="skill-tools">MATLAB · Mathematica · Chemcraft · LaTeX · Flash8</p>
-          <p class="skill-cap">The M&#252;ller&#8211;Brown test energy surface, computed in Python with SymPy. The gradient is derived symbolically, and the stationary points are found numerically.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <figure class="skill-fig"><img src="images/sk3_methods.svg" alt="Enzyme reaction network and its concentration time course"></figure>
+        <figure class="skill-fig"><img src="images/sk3_methods.svg" alt="Amount of A falling and amount of B rising over time"></figure>
         <div class="skill-body">
           <h3>Research Methods</h3>
           <p class="skill-explain">The mathematical techniques I use to describe how chemicals react and change over time.</p>
           <p class="skill-tools">ODE modelling · reaction networks · graph theory · QSPR · machine learning · impedance analysis</p>
-          <p class="skill-cap">An enzyme reaction network (a) and its ODE solution (b) with illustrative rates. Dots are numerical, and the dashed line is the analytical approximation for the substrate.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <figure class="skill-fig"><img src="images/sk4_built.svg" alt="3D plot of 25 PyTIE descriptors for seven nanoribbon sizes"></figure>
+        <figure class="skill-fig"><img src="images/sk4_built.svg" alt="Naphthalene drawn as a graph, with each atom labelled by its degree"></figure>
         <div class="skill-body">
           <h3>Software I Built</h3>
           <p class="skill-explain">Open-source Python tools (PyTIE) I developed that measure the structure of molecules automatically.</p>
           <p class="skill-tools">PyTIE_D · PyTIE_DS · PyTIE_SMS_DE · PyTIE_SMS_DSE &nbsp;—&nbsp; <a href="https://github.com/sahayavijay/PyTIE-0.0.1.git" target="_blank" rel="noopener">GitHub ↗</a></p>
-          <p class="skill-cap">Real <em>PyTIE_D</em> output: 25 degree-based descriptors for seven graphene nanoribbons of 24 to 108 atoms, ranked by value.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <figure class="skill-fig"><img src="images/sk5_certification.svg" alt="3D probability surface from a small neural network with two classes of data points"></figure>
+        <figure class="skill-fig"><img src="images/sk5_certification.svg" alt="Two groups of points separated by a line learned from the data"></figure>
         <div class="skill-body">
           <h3>Certifications</h3>
           <p class="skill-explain">Certified training in using Python for machine learning.</p>
           <p class="skill-tools">Python Programming for Machine Learning (Certificate No. 1BHGBFVZ)</p>
-          <p class="skill-cap">A small neural network trained in Python with NumPy on generated data. Accuracy is measured on 1,000 unseen points.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <figure class="skill-fig"><img src="images/sk6_languages.svg" alt="Grid of Tamil letters and the English alphabet"></figure>
+        <figure class="skill-fig"><img src="images/sk6_languages.svg" alt="The word for hello in Tamil and in English"></figure>
         <div class="skill-body">
           <h3>Languages</h3>
           <p class="skill-explain">Languages I read, write, and speak fluently.</p>
           <p class="skill-tools">English · Tamil</p>
-          <p class="skill-cap">Letters generated from their Unicode code points.</p>
         </div>
       </div>
 
