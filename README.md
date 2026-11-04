@@ -28,7 +28,7 @@ personal_homepage/
     ├── rc2_autocatalysis.svg # figure: Autocatalysis & the Origin of Life
     ├── rc3_modelling.svg     # figure: Mathematical & Computational Modelling
     ├── rc4_eis.svg           # figure: Electrochemical Impedance Spectroscopy
-    ├── rc5_camkii.svg        # figure: Synaptic Memory & the CaMKII Switch
+    ├── rc5_ai_tools.svg      # figure: AI-Assisted Research & Development
     └── rc6_compute.svg       # figure: Scientific Computing & Open Tools
 ```
 
