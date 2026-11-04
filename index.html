@@ -375,20 +375,15 @@ section{padding:72px 24px;}
   transition:.2s;
 }
 .skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12);}
-.skill-icon{
-  background:linear-gradient(135deg,#0e1c33,#1b3a63);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-.skill-icon svg{width:135px;height:92px;}
+.skill-fig{margin:0;background:#fff;}
+.skill-fig img{display:block;width:100%;height:auto;}
 .skill-body{padding:22px 24px 24px;border-top:4px solid var(--blue);}
 .skill-body h3{color:var(--navy);font-size:18px;margin-bottom:8px;}
 .skill-explain{font-size:14.5px;color:#495260;margin-bottom:12px;}
 .skill-tools{font-size:13px;color:var(--navy-2);font-weight:600;overflow-wrap:anywhere;}
 .skill-tools a{color:var(--teal-dark);font-weight:700;text-decoration:none;overflow-wrap:anywhere;}
 .skill-tools a:hover{text-decoration:underline;}
+.skill-cap{margin-top:12px;font-size:12.5px;font-style:italic;line-height:1.5;color:var(--muted);}
 
 /* ---------- Talks & Presentations ---------- */
 .talk-group-title{
@@ -615,8 +610,8 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
           <p>I represent molecules and crystals as graphs and design fast algorithms to describe their structure. These algorithms give counting polynomials and distance-based descriptors for boric acid, aluminophosphates and fullerene cages. I relate these descriptors to the NMR and ESR spectral patterns of boric acid nanosheets. I then use them in quantitative structure–property relationship (QSPR) and machine-learning models. These models predict the properties of drugs and graphene nanoribbons.</p>
         </div>
         <figure class="rc-fig">
-          <img class="rc-img" src="images/rc1_graph.svg" alt="Molecular graph mapped to a property by regression">
-          <figcaption class="rc-cap">A molecule is treated as a graph of atoms (vertices) and bonds (edges); degree-based indices are regressed against measured properties to predict them.</figcaption>
+          <img class="rc-img" src="images/rc1_graph.svg" alt="3D view of a hydrogen-bonded boric acid sheet with boron in green, oxygen in red and hydrogen in blue, and a log-log plot of its Wiener index against the number of atoms">
+          <figcaption class="rc-cap">A hydrogen-bonded boric acid sheet treated as a graph, with B, O and H atoms as vertices. (a) A 168-atom sheet, with boron in green, oxygen in red and hydrogen in blue. Solid lines are covalent bonds and dotted lines are hydrogen bonds. (b) The exact Wiener index for sheets of 42 to 6,048 atoms approaches a slope of 5/2.</figcaption>
         </figure>
       </div>
       <div class="research-card">
@@ -625,8 +620,8 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
           <p>How did the first chemical networks begin to amplify themselves? I study this by writing protometabolism in an open system as a reaction network of ordinary differential equations (ODEs). From this model I derived the rate at which autocatalysis amplifies itself in linear networks. This rate shows when a catalytic network grows and keeps itself alive, and when it fades away. A manuscript on this result is under minor revision at <em>Physical Review E</em>. This gives a clear kinetic test for self-sustaining chemistry.</p>
         </div>
         <figure class="rc-fig">
-          <img class="rc-img" src="images/rc2_autocatalysis.svg" alt="Autocatalytic cycle and exponential growth curve">
-          <figcaption class="rc-cap">A species that catalyses its own formation (A→2A) feeds a loop; the network's amplification factor λ decides whether the population grows over time.</figcaption>
+          <img class="rc-img" src="images/rc2_autocatalysis.svg" alt="Simulated autocatalytic cycle shown in 3D, with a plot of total amount against time at three loss rates">
+          <figcaption class="rc-cap">A simulated six-species autocatalytic cycle with illustrative rates. (a) Sphere size shows each species&#39; share of the growing mode, and the last step doubles X<sub>1</sub>. (b) The total amount grows, holds or decays as the loss rate <em>d</em> passes the threshold <em>d</em>*. Dots are numerical integration and dashed lines are the exact growth rate.</figcaption>
         </figure>
       </div>
       <div class="research-card">
@@ -635,8 +630,8 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
           <p>Across all my projects, I turn a reaction network into equations that I can solve and interpret. I developed methods that estimate how long an autocatalytic network survives. I also separate the dynamics of linear networks into their individual timescales. These methods rest on linear algebra, stability analysis and timescale analysis. I implement and test them in Python and Mathematica, and apply them to the origin of life and electrochemistry. These tools let me compare different systems in one framework.</p>
         </div>
         <figure class="rc-fig">
-          <img class="rc-img" src="images/rc3_modelling.svg" alt="ODE trajectories converging to a steady state">
-          <figcaption class="rc-cap">Reaction kinetics written as differential equations; trajectories from different starting points reveal the system's steady states and their stability.</figcaption>
+          <img class="rc-img" src="images/rc3_modelling.svg" alt="3D plot of trajectories reaching one steady state, with a plot of the distance from steady state showing two timescales">
+          <figcaption class="rc-cap">A simulated three-species linear network with illustrative rates. (a) Trajectories from five starting compositions reach one steady state. (b) The distance from steady state follows two timescales, which come from the eigenvalues of the rate matrix.</figcaption>
         </figure>
       </div>
       <div class="research-card">
@@ -645,8 +640,8 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
           <p>An impedance spectrum carries the kinetics of every step in a catalytic reaction. I build analytical microkinetic models that read this kinetic information for multi-step reactions. By solving the kinetic ODEs, I obtained a formula for the surface coverage. From it I derived a new equation for fitting electrochemical impedance spectroscopy (EIS) data. The resulting impedance spectra and Bode plots connect directly to the kinetic timescales of a catalyst. I also simulate and fit spectra numerically.</p>
         </div>
         <figure class="rc-fig">
-          <img class="rc-img" src="images/rc4_eis.svg" alt="Nyquist impedance plot and equivalent circuit">
-          <figcaption class="rc-cap">Impedance Z(ω) traced in the complex plane as frequency varies; the arc's width encodes charge-transfer resistance and electrode surface coverage.</figcaption>
+          <img class="rc-img" src="images/rc4_eis.svg" alt="3D plot of impedance against frequency, with a Nyquist plot comparing the simulation and the linearised model">
+          <figcaption class="rc-cap">Impedance simulated in the time domain for a textbook Volmer&#8211;Heyrovsky reaction with illustrative rate constants. (a) Impedance against frequency in 3D. (b) The Nyquist plot, where dots are the simulation and the line is the linearised model. Their largest relative difference is 5 &#215; 10<sup>&#8722;5</sup>.</figcaption>
         </figure>
       </div>
       <div class="research-card">
@@ -655,8 +650,8 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
           <p>I use AI tools as a regular part of my research and software work. I direct agentic coding tools such as Claude Code to build programs from specifications that I write. I built a no-code graphical tool this way, and it is now under peer review. I defined every algorithm and feature in it myself. I also use AI assistants to draft and review code, derivations and manuscripts. I never accept an output unchecked. I validate each one against analytical results, numerical tests or known reference values.</p>
         </div>
         <figure class="rc-fig">
-          <img class="rc-img" src="images/rc5_ai_tools.svg" alt="Researcher directing an AI agent and validating its output in a loop">
-          <figcaption class="rc-cap">I write the specification, an AI agent generates the code or draft, and I validate the result. The loop repeats until every output passes the checks.</figcaption>
+          <img class="rc-img" src="images/rc5_ai_tools.svg" alt="3D plot of solver error against tolerance and cycle length with a pass limit, and a parity plot of computed against exact growth rates">
+          <figcaption class="rc-cap">Validation tests on a numerical solver. (a) Relative error of the computed growth rate in 30 tests, where the plane marks the 10<sup>&#8722;6</sup> pass limit. (b) Computed against exact growth rates for 40 random networks.</figcaption>
         </figure>
       </div>
       <div class="research-card">
@@ -665,8 +660,8 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
           <p>I build open software that makes molecular descriptors easy to compute and check. <em>PyTIE</em> is a Python program of four packages. It calculates degree-based topological descriptors and molecular entropy from molecular graphs, and its code is on GitHub. The method is described in an arXiv preprint. PyTIE automates calculations that are slow and error-prone by hand, so large sets of molecules can be analysed quickly. Because the code is open, other researchers can reuse it, check it and extend it.</p>
         </div>
         <figure class="rc-fig">
-          <img class="rc-img" src="images/rc6_compute.svg" alt="PyTIE computing descriptors from a molecular graph">
-          <figcaption class="rc-cap">Open Python tools (PyTIE) take a molecular graph as input and compute its topological descriptors and molecular entropy automatically, at scale.</figcaption>
+          <img class="rc-img" src="images/rc6_compute.svg" alt="3D view of a graphene nanoribbon coloured by vertex degree, with a plot of three topological descriptors against the number of atoms">
+          <figcaption class="rc-cap">Degree-based descriptors computed for armchair graphene nanoribbons, with carbon atoms as vertices. (a) A 94-atom ribbon, coloured by vertex degree. (b) The first Zagreb (<em>M</em><sub>1</sub>), Randi&#263; (<em>R</em>) and atom-bond connectivity (ABC) indices grow linearly with size.</figcaption>
         </figure>
       </div>
     </div>
@@ -678,107 +673,66 @@ footer .updated{margin-top:8px;font-size:12.5px;color:#8595a9;}
   <div class="wrap">
     <h2 class="section-title">Skills &amp; Expertise</h2>
     <div class="section-rule"></div>
-    <p class="focus-lead">Each card uses a simple picture and a plain-language note, so the tools and methods make sense even to readers outside my field.</p>
+    <p class="focus-lead">Each card pairs a generated figure with a plain-language note, so the tools and methods make sense even to readers outside my field.</p>
     <div class="skills-grid">
 
       <div class="skill-card">
-        <div class="skill-icon">
-          <svg viewBox="0 0 135 92" role="img" aria-label="Code brackets">
-            <g fill="none" stroke="#7dd3fc" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="48,30 28,46 48,62"/>
-              <polyline points="87,30 107,46 87,62"/>
-            </g>
-            <line x1="74" y1="26" x2="61" y2="66" stroke="#c9a24a" stroke-width="5.5" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <figure class="skill-fig"><img src="images/sk1_programming.svg" alt="Stochastic simulation traces of molecule numbers over time with their mean"></figure>
         <div class="skill-body">
           <h3>Programming</h3>
           <p class="skill-explain">I write computer programs that run the mathematical models and simulations behind my research.</p>
           <p class="skill-tools">Python · C++ · Java · HTML · CSS</p>
+          <p class="skill-cap">A stochastic simulation of molecules forming and decaying, written in Python. Thin lines are single runs.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <div class="skill-icon">
-          <svg viewBox="0 0 135 92" role="img" aria-label="Gear and chart">
-            <g stroke="#14b8a1" stroke-width="5" fill="none" stroke-linecap="round">
-              <circle cx="46" cy="46" r="16"/>
-              <line x1="46" y1="20" x2="46" y2="28"/><line x1="46" y1="64" x2="46" y2="72"/>
-              <line x1="20" y1="46" x2="28" y2="46"/><line x1="64" y1="46" x2="72" y2="46"/>
-              <line x1="29" y1="29" x2="34" y2="34"/><line x1="58" y1="58" x2="63" y2="63"/>
-              <line x1="63" y1="29" x2="58" y2="34"/><line x1="34" y1="58" x2="29" y2="63"/>
-            </g>
-            <circle cx="46" cy="46" r="5" fill="#14b8a1"/>
-            <g fill="#c9a24a"><rect x="86" y="50" width="9" height="22"/><rect x="100" y="38" width="9" height="34"/><rect x="114" y="28" width="9" height="44"/></g>
-          </svg>
-        </div>
+        <figure class="skill-fig"><img src="images/sk2_software.svg" alt="3D energy surface with its minima and saddle points marked"></figure>
         <div class="skill-body">
           <h3>Scientific Software</h3>
           <p class="skill-explain">Specialised tools for heavy calculation, symbolic mathematics, and preparing scientific documents.</p>
           <p class="skill-tools">MATLAB · Mathematica · Chemcraft · LaTeX · Flash8</p>
+          <p class="skill-cap">The M&#252;ller&#8211;Brown test energy surface, computed in Python with SymPy. The gradient is derived symbolically, and the stationary points are found numerically.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <div class="skill-icon">
-          <svg viewBox="0 0 135 92" role="img" aria-label="Network and curve">
-            <g stroke="#4a6a95" stroke-width="3.5"><line x1="26" y1="34" x2="52" y2="24"/><line x1="52" y1="24" x2="64" y2="50"/><line x1="26" y1="34" x2="38" y2="62"/><line x1="38" y1="62" x2="64" y2="50"/></g>
-            <g fill="#14b8a1"><circle cx="26" cy="34" r="6.5"/><circle cx="52" cy="24" r="6.5"/><circle cx="64" cy="50" r="7.5" fill="#c9a24a"/><circle cx="38" cy="62" r="6.5"/></g>
-            <path d="M82 66 C96 66 100 30 124 26" fill="none" stroke="#7dd3fc" stroke-width="4.5" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <figure class="skill-fig"><img src="images/sk3_methods.svg" alt="Enzyme reaction network and its concentration time course"></figure>
         <div class="skill-body">
           <h3>Research Methods</h3>
           <p class="skill-explain">The mathematical techniques I use to describe how chemicals react and change over time.</p>
           <p class="skill-tools">ODE modelling · reaction networks · graph theory · QSPR · machine learning · impedance analysis</p>
+          <p class="skill-cap">An enzyme reaction network (a) and its ODE solution (b) with illustrative rates. Dots are numerical, and the dashed line is the analytical approximation for the substrate.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <div class="skill-icon">
-          <svg viewBox="0 0 135 92" role="img" aria-label="Software package and graph">
-            <g stroke="#14b8a1" stroke-width="4.5" fill="none" stroke-linejoin="round">
-              <path d="M34 34 L56 22 L78 34 L78 58 L56 70 L34 58 Z"/>
-              <line x1="34" y1="34" x2="56" y2="46"/><line x1="78" y1="34" x2="56" y2="46"/><line x1="56" y1="46" x2="56" y2="70"/>
-            </g>
-            <g stroke="#4a6a95" stroke-width="3"><line x1="98" y1="34" x2="108" y2="48"/><line x1="108" y1="48" x2="98" y2="62"/></g>
-            <g fill="#7dd3fc"><circle cx="98" cy="34" r="5.5"/><circle cx="109" cy="48" r="5.5" fill="#c9a24a"/><circle cx="98" cy="62" r="5.5"/></g>
-          </svg>
-        </div>
+        <figure class="skill-fig"><img src="images/sk4_built.svg" alt="3D plot of 25 PyTIE descriptors for seven nanoribbon sizes"></figure>
         <div class="skill-body">
           <h3>Software I Built</h3>
           <p class="skill-explain">Open-source Python tools (PyTIE) I developed that measure the structure of molecules automatically.</p>
           <p class="skill-tools">PyTIE_D · PyTIE_DS · PyTIE_SMS_DE · PyTIE_SMS_DSE &nbsp;—&nbsp; <a href="https://github.com/sahayavijay/PyTIE-0.0.1.git" target="_blank" rel="noopener">GitHub ↗</a></p>
+          <p class="skill-cap">Real <em>PyTIE_D</em> output: 25 degree-based descriptors for seven graphene nanoribbons of 24 to 108 atoms, ranked by value.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <div class="skill-icon">
-          <svg viewBox="0 0 135 92" role="img" aria-label="Certificate medal">
-            <circle cx="67" cy="38" r="21" fill="none" stroke="#c9a24a" stroke-width="5"/>
-            <path d="M67 27 l3.4 7 7.6 0.8 -5.7 5.1 1.6 7.5 -6.9 -3.8 -6.9 3.8 1.6 -7.5 -5.7 -5.1 7.6 -0.8 z" fill="#c9a24a"/>
-            <path d="M54 56 L47 78 L67 69 L87 78 L80 56" fill="none" stroke="#14b8a1" stroke-width="4.5" stroke-linejoin="round"/>
-          </svg>
-        </div>
+        <figure class="skill-fig"><img src="images/sk5_certification.svg" alt="3D probability surface from a small neural network with two classes of data points"></figure>
         <div class="skill-body">
           <h3>Certifications</h3>
           <p class="skill-explain">Certified training in using Python for machine learning.</p>
           <p class="skill-tools">Python Programming for Machine Learning (Certificate No. 1BHGBFVZ)</p>
+          <p class="skill-cap">A small neural network trained in Python with NumPy on generated data. Accuracy is measured on 1,000 unseen points.</p>
         </div>
       </div>
 
       <div class="skill-card">
-        <div class="skill-icon">
-          <svg viewBox="0 0 135 92" role="img" aria-label="Language speech bubble">
-            <path d="M40 24 H92 a9 9 0 0 1 9 9 V55 a9 9 0 0 1 -9 9 H60 L45 78 V64 H40 a9 9 0 0 1 -9 -9 V33 a9 9 0 0 1 9 -9 Z" fill="none" stroke="#14b8a1" stroke-width="4.5"/>
-            <text x="54" y="52" fill="#7dd3fc" font-size="22" font-weight="bold" font-family="Georgia, serif">A</text>
-            <text x="72" y="52" fill="#c9a24a" font-size="22" font-weight="bold" font-family="sans-serif">&#2949;</text>
-          </svg>
-        </div>
+        <figure class="skill-fig"><img src="images/sk6_languages.svg" alt="Grid of Tamil letters and the English alphabet"></figure>
         <div class="skill-body">
           <h3>Languages</h3>
           <p class="skill-explain">Languages I read, write, and speak fluently.</p>
           <p class="skill-tools">English · Tamil</p>
+          <p class="skill-cap">Letters generated from their Unicode code points.</p>
         </div>
       </div>
 

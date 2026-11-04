@@ -29,7 +29,13 @@ personal_homepage/
     ├── rc3_modelling.svg     # figure: Mathematical & Computational Modelling
     ├── rc4_eis.svg           # figure: Electrochemical Impedance Spectroscopy
     ├── rc5_ai_tools.svg      # figure: AI-Assisted Research & Development
-    └── rc6_compute.svg       # figure: Scientific Computing & Open Tools
+    ├── rc6_compute.svg       # figure: Scientific Computing & Open Tools
+    ├── sk1_programming.svg   # figure: Programming
+    ├── sk2_software.svg      # figure: Scientific Software
+    ├── sk3_methods.svg       # figure: Research Methods
+    ├── sk4_built.svg         # figure: Software I Built
+    ├── sk5_certification.svg # figure: Certifications
+    └── sk6_languages.svg     # figure: Languages
 ```
 
 Keep this structure intact. `index.html` references the images and `scholar-stats.json`
